@@ -1,0 +1,40 @@
+﻿@model ControleDeAgendamento.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row col-md-12">
+    <div class="col-md-4"></div>
+    <section class="col-md-4">
+        <h2 class="text-center">Login</h2>
+        <form method="post" asp-controller="Account" asp-action="Login">
+            <h5 class="text-center">Use o E-mail e Senha informados no seu cadastro.</h5>
+            <hr />
+            <div class="p-2 row ">
+                <label class="text-center" asp-for="Email"></label>
+                <input type="email" asp-for="Email" style="width:100%" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="p-2 row">
+                <label class="text-center" asp-for="Password"></label>
+                <input type="password" asp-for="Password" style="width:100%" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="p-2 row">
+                <label asp-for="RememberMe">
+                    <input type="checkbox" asp-for="RememberMe" />
+                    Me Lembre?
+                </label>
+            </div>
+            <div class="p-2 row">
+                <input class="mb-2 btn btn-primary" type="submit" style="width:100%" value="Entrar"/>
+                <a class="btn btn-secondary" style="width:100%" asp-controller="Account" asp-action="Register">Cadastrar</a>
+            </div>
+        </form>
+    </section>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

@@ -1,0 +1,16 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ControleDeAgendamento.Models.UserApplication> singInManager;
+
+@{
+    if (singInManager.IsSignedIn(User))
+    {
+
+        return;
+    }
+
+    <li class="nav-item">
+        <a class="mr-2 btn btn-primary" style="width:100px" asp-controller="Account" asp-action="Index">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-secondary" style="width:100px" asp-controller="Account" asp-action="Register">Cadastrar</a>
+    </li>
+}

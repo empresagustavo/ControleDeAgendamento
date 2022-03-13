@@ -1,0 +1,50 @@
+﻿@model ControleDeAgendamento.Models.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row col-md-12">
+    <div class="col-md-4"></div>
+    <section class="col-md-4">
+        <h2 class="text-center">Register</h2>
+        <form  method="post" asp-controller="Account" asp-action="Register">
+            <div class="p-2 row">
+                <label asp-for="Email"></label>
+                <input type="email" asp-for="Email" style="width:100%"/>
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="p-2 row">
+                <label asp-for="Password"></label>
+                <input type="password" asp-for="Password" style="width:100%"/>
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+            <div class="p-2 row">
+                <label asp-for="ConfirmPassword"></label>
+                <input type="password" asp-for="ConfirmPassword" style="width:100%"/>
+                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+            </div>
+            <div class="p-2 row">
+                <label asp-for="Name"></label>
+                <input type="text" asp-for="Name" style="width:100%"/>
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="p-2 row">
+                <label asp-for="RoleName"></label>
+                <select asp-for="RoleName" style="width:100%" asp-items="ControleDeAgendamento.Models.ViewModels.Enumerators.Helper.GetHelperList()">
+                </select>
+                @*<input type="text" asp-for="RoleName" style="width:100%"/>*@
+                <span class="text-danger" asp-validation-for="RoleName"></span>
+            </div>
+              <div class="p-2 row">
+               <input class="mb-2 btn btn-primary" type="submit" style="width:100%" value="Cadastrar" />
+               <a class="btn btn-secondary" style="width:100%" asp-controller="Account" asp-action="Index" >Login</a>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
